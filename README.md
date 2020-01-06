@@ -6,7 +6,7 @@ In other words a program that translates **every** javascript code
 into JsFuck.
 
 #### What the f\*\*\* is **JsFuck**?!
-have a look at [https://en.wikipedia.org/wiki/JSFuck]!
+have a look at [https://en.wikipedia.org/wiki/JSFuck]()!
 It is Javascript but with only the characters:
 `[`, `]`, `(`, `)`, `!`, and `+`
 
@@ -87,8 +87,8 @@ So we can generate the constants `true` and `false` now by `![]` and `!![]`.
 To convert any value to a string concat an empty array on it with `+[]`.
 So now we can generate the **strings** `"true"` and `"false"`.
 To generate numbers we can do the following:
-`0` is just `+[]`
-`1` is `+!![]`
+`0` is just `+[]`,
+`1` is `+!![]` and
 `2` is `1+1` is `+!![]`
 […]
 So we can index a string and access all characters in 'true' and 'false'.
@@ -99,12 +99,12 @@ Try to take the []-th element of an array. Yeah right, that's not possiple,
 because that makes no sense. So by `[][[]]` we get the value `undefined`.
 Now we can also generate the characters `n`, `d`, `i`.
 
-##### 'NaN'
+##### `NaN`
 `+[false]` is `Nan` don't ask me why. It really makes no sense to convert
 an array to an integer, so we never should have expected anything better.
 Now we can generate `N`.
 
-##### 'Infinity'
+##### `Infinity`
 This is a more tricky one. We concat the string `"1e1000"` and convert it to
 a number. 1e1000 is to big to be stored into a javascript number, so it
 simply becomes `Infinity`.
