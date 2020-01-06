@@ -6,7 +6,7 @@ In other words a program that translates **every** javascript code
 into JsFuck.
 
 #### What the f\*\*\* is **JsFuck**?!
-have a look at [https://en.wikipedia.org/wiki/JSFuck]()!
+have a look at [](https://en.wikipedia.org/wiki/JSFuck)!
 It is Javascript but with only the characters:
 `[`, `]`, `(`, `)`, `!`, and `+`
 
