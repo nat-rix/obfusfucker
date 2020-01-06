@@ -1,0 +1,69 @@
+#!/usr/bin/env python3
+
+def get_num(n):
+    if n:
+        return '+!![]' * n
+    else:
+        return '+[]'
+
+ALPHA = 'abcdefghijklmnopqrstuvwxyz'
+
+def get_char(c):
+    if c in '0123456789':
+        return f'[]+({get_num(int(c))})'
+    for w, v in WORDS.items():
+        n = w.find(c)
+        if n != -1:
+            return f'{v}[{get_num(n)}]'
+    if c == 'C':
+        return f'{get_global("escape")}(([]+[])[{make_string("italics")}]())[{get_num(2)}]'
+    elif c == 'S':
+        return f'([]+{get_constr("([]+[])")})[{get_num(9)}]'
+    elif c == 'g':
+        return f'([]+{get_constr("([]+[])")})[{get_num(14)}]'
+    elif c == 'm':
+        return f'([]+{get_constr("(+[])")})[{get_num(11)}]'
+    elif c in ALPHA:
+        return f'({get_num(ALPHA.index(c) + 10)})[{make_string("toString")}]({get_num(36)})'
+    else:
+        return f'{get_constr("([]+[])")}[{make_string("fromCharCode")}]({get_num(ord(c))})'
+
+
+def get_constr(v):
+    return f'{v}[{make_string("constructor")}]'
+
+
+def get_global(f):
+    return f'{make_program(f"return {f}")}()'
+
+
+def make_string(s):
+    return '+'.join(get_char(c) for c in s)
+
+
+def make_fun():
+    return f'[][{make_string("flat")}]'
+
+
+WORDS = {
+    'true': '([]+!![])',
+    'false': '([]+![])',
+    'NaN': '([]+(+[![]]))',
+    'undefined': '([]+[][[]])',
+    'Infinity': '([]+(+(+!+[]+(!+[]+[])[!+[]+!+[]+!+[]]+[+!+[]]+[+[]]+[+[]]+[+[]])))'
+    }
+WORDS.update({'function flat() {': f'([]+{make_fun()})'})
+
+
+def make_program(prog):
+    return f'{get_constr(make_fun())}({make_string(prog)})'
+
+
+if __name__ == '__main__':
+    import sys
+    if len(sys.argv) > 1:
+        with open(sys.argv[1]) as f:
+            print(make_program(f.read()) + '()')
+    else:
+        print(f'Usage: {sys.argv[0]} [FILE]')
+        print('Translate JavaScript into JsFuck.')
