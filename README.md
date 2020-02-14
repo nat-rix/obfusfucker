@@ -53,6 +53,11 @@ natrix@host:~$ obfusfucker
 […]
 ```
 
+### Note
+
+JsFuck code often runs slowly on SpiderMonkey (firefox).
+The V8 Engine used by Chrome(ium) works pretty good for this.
+
 ### Example
 
 To compile the example script `calculate_pi.js`
