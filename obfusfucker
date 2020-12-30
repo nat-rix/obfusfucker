@@ -39,7 +39,7 @@ def get_char(c, ps=False, st=False):
     elif c == 'm':
         return f'([]+{get_constr("(+[])")})[{get_num(11)}]'
     elif c == ',':
-        return f'{get_constr("[]")}({get_num(2)})'
+        return f'([[],[]]+[])'
     elif c in ALPHA:
         return f'({get_num(ALPHA.index(c) + 10)})[{make_string("toString")}]({get_num(36)})'
     else:
