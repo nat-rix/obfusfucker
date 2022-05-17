@@ -38,20 +38,6 @@ or by simply executing it:
 natrix@host:~/obfusfucker$ ./obfusfucker
 […]
 ```
-If you want to **install** it for unix systems:
-```bash
-natrix@host:~/obfusfucker$ su
-Password: ********
-root@host:~/obfusfucker$ cp obfusfucker /usr/bin/
-root@host:~/obfusfucker$ chmod +x /usr/bin/obfusfucker
-root@host:~/obfusfucker$ exit
-natrix@host:~/obfusfucker$ 
-```
-now you can simply execute it with `obfusfucker` everywhere:
-```bash
-natrix@host:~$ obfusfucker
-[…]
-```
 
 ### Note
 
